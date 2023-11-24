@@ -1,0 +1,85 @@
+[
+{
+	"uri": "/2-preparation/2.1-createkeypair/",
+	"title": "Create Key Pair",
+	"tags": [],
+	"description": "",
+	"content": " Go to AWS Management Console.   Find EC2. Select EC2.   In EC2 interface, select Key Pairs. Click Create Key Pair.  Input the name of key pair FCJ-KeyPair. At Key pair type, choose RSA. At Private key file format, choose .pem. Click Create key pair to create. Make sure that key pair file was downloaded into your local machine.\n\r  "
+},
+{
+	"uri": "/",
+	"title": "Deploy application using Beanstalk",
+	"tags": [],
+	"description": "",
+	"content": "Deploy application using Beanstalk Overview With AWS Elastic Beanstalk, you can quickly deploy and manage applications in the AWS Cloud without worrying about the infrastructure that runs those applications. AWS Elastic Beanstalk reduces management complexity without restricting choice or control. You simply upload your application, and AWS Elastic Beanstalk automatically handles the details of capacity provisioning, load balancing, scaling, and application health monitoring.\nContent  Introduce Preparation Create develop environment in Elastic Beanstalk Create production environment in Elastic Beanstalk Update application in production environment Swap URL between two environment Clean up resource  "
+},
+{
+	"uri": "/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Application: Elastic Beanstalk directly takes in our project code. So Elastic Beanstalk application is named the same as your project home directory.\nApplication Environments: Users may want their application to run on different environments like DEV, UAT, and PROD. You can create and configure different environments to run applications on different stages.\nIsolated: All environments within a single application are isolated from each other (independent of each others’ running states). Needless to say, two different applications are also isolated.\nScalability: Using Auto-Scaling within Elastic Beanstalk makes the application dynamically scalable.\nElastic Load Balancing: All the web requests to the application are not directly relayed to application instances. They first hit the Elastic Load Balancer (ELB), which, as the name suggests, balances the load across all the application instances.\nLanguage support: Elastic Beanstalk supports the applications developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS.\nPricing: There is no extra charge for using Elastic Beanstalk. Users are only required to pay for the services and resources provisioned by Elastic Beanstalk Service.\n"
+},
+{
+	"uri": "/2-preparation/2.2-createinstancerole/",
+	"title": "Create IAM instance role",
+	"tags": [],
+	"description": "",
+	"content": "1.Go to AWS Management Console.\n Find IAM. Select IAM.    In IAM interface, select Roles.\n  In Role interface, search the role name aws-elasticbeanstalk-ec2-role.\n  If this role is existing, you can skip this step and go to 3. Create Develop environment in Elastic Beanstalk.\n  Check and make sure that this role was created with 3 policies AWSElasticBeanstalkWebTier, AWSElasticBeanstalkWorkerTier and AWSElasticBeanstalkMulticontainerDocker.\n\r If the role is not existing, you can create new role by clicking Create role.   At Trusted entity type interface:\n Choose AWS service. At Use case, search and choose EC2 as service. Choose EC2 as use case. Then click Next.     Then, search and add policies AWSElasticBeanstalkWebTier, AWSElasticBeanstalkWorkerTier and AWSElasticBeanstalkMulticontainerDocker.   Input the name of role aws-elasticbeanstalk-ec2-role.   Scroll down and check 3 policies AWSElasticBeanstalkWebTier, AWSElasticBeanstalkWorkerTier and AWSElasticBeanstalkMulticontainerDocker were added. Then, click Create role to create the role.   "
+},
+{
+	"uri": "/2-preparation/",
+	"title": "Preparation",
+	"tags": [],
+	"description": "",
+	"content": "Preparation steps  Key Pair: To SSH to EC2 instances which were provisioned by Elastic Beanstalk. IAM service role: Elastic Beanstalk assumes a service role to use other AWS services on your behalf. The service role already exists in your account and you then create a new environment in Elastic Beanstalk console or using Elastic Beanstalk CLI. IAM instance role: Elastic Beanstalk applies instances profile to the instances in your environment. It allows them to do the following:  Retrieve application versions from Amazon Simple Storage Service (Amazon S3). Upload logs to Amazon S3. Perform other tasks that vary depending on the environment type and platform.    Content 2.1. Create Key Pair.\n2.2. Create IAM instance role.\n"
+},
+{
+	"uri": "/3-createdevenv/",
+	"title": "Create Develop environment in Elastic Beanstalk",
+	"tags": [],
+	"description": "",
+	"content": "  Download source code here nodejs.zip\n  Go to AWS Management Console\n  Search key word Elastic Beanstalk and select.   Click Create Application.   In Configure environment stage.\n    Select Web server environment\n  In Application name field, input the name of your application. Ex: FCJ-My-First-App.\n  In Environment name field, input FCJ-My-First-App-env-DEV for Develop environment.   In Platform field, choose NodeJS\n  In Application code, choose Upload your code.\n  In Version lable , input V1-Green_DEV\n  Then choose Local file and click Choose file to upload source code from your local machine.   In Presets field, choose Single instance (free tier eligible). Then click Next.    In Configure service access interface:\n At Service role, choose Use an existing role. At Existing service roles, select role aws-elasticbeanstalk-service-role. At EC2 key pair, select FCJ-KeyPair. At EC2 instance profile, select role aws-elasticbeanstalk-ec2-role. Then click Skip to review to go to next step.     Scroll down and click Submit to create application and its environment.   Check the result, the environment is creating. This process will take you about 5 minutes to finish.\n\r  See the result after the environment is created successfully.   Click to Domain of environment to see the result of your application.   Remember that the background of your application now is Green.\n\rNavigate to EC2 Dashboard. Click to Instance. You will see the instance name FCJ-My-First-App-env-DEV had been provisioned by Elastic Beanstalk.  Select the instances and copy the Public IP address.  SSH to instance with Public IP address and FCJ-KeyPair was created at 2.1-Create Key Pair   "
+},
+{
+	"uri": "/4-createprodenv/",
+	"title": "Create Production environment in Elastic Beanstalk",
+	"tags": [],
+	"description": "",
+	"content": "  Go to AWS Management Console\n  Search key word Elastic Beanstalk and select.   Click Application and click to application name was created.   Click Create environment to create Production environment.   Input the name of environment FCJ-My-First-App-env-PROD at Environment name.\n Choose NodeJS at Platform.  Choose Upload your code at Application code Input V1-GREEN-PROD at Version label Choose Local file and click Choose file button to upload your code. Select the nodejs.zip file that you had downloaded. Choose High availability at Presets. Then click Next to go to next step.     In Configure service access interface:\n At Service role, choose Use an existing role. At Existing service roles, select role aws-elasticbeanstalk-service-role. At EC2 key pair, select FCJ-KeyPair. At EC2 instance profile, select role aws-elasticbeanstalk-ec2-role. Then click Skip to review to go to next step.     Scroll down and click Submit to create environment.   Check the result, the environment is creating. This process will take you about 5 minutes to finish.\n\r  See the result after the environment is created successfully.   Click to Domain of environment to see the result. Remember that the background of your application now is Green.\n\r  Navigate to EC2 Dashboard.\n  Click to Instance. You will see the instance name FCJ-My-First-App-env-PROD had been provisioned by Elastic Beanstalk.   Click to Auto Scaling Groups, you will see two ASGs are created.\n The ASG with Max = 4, belongs to FCJ-My-First-App-env-PROD environment. The ASG with Max = 1, belongs to FCJ-My-First-App-env-DEV environment.     Click to Load Balancers, you will see an ALB is created.\n Select ALB. Click Listeners and rules tab. Click to the target group below.     In Target Group interface, at Registered targets you can see the instance that belongs to FCJ-My-First-App-env-PROD environment. An ASG and ALB was created in Production environment since you selected High availability at Presets when configuring the Elastic Beanstalk.\n\r  "
+},
+{
+	"uri": "/5-updateappinenv/",
+	"title": "Update application in Develop environment",
+	"tags": [],
+	"description": "",
+	"content": "  Extract file nodejs.zip as a folder with name is nodejs-V2.   Open nodejs-V2 folder, edit file index.html.\n At line 38, replace 73A53E with 0000FF and save.     Zip all files in folder nodejs-V2 to nodejs-V2.zip. You can download this file nodejs-V2.zip to skip these steps.\n\r  Go to Environment of Elastic Beanstalk.\n  Click to Develop environment FCJ-My-First-App-env-DEV.   Click Upload and deploy.   At Upload and deploy interface.\n Click Choose file button to upload source code file from your local machine. Select and upload file name nodejs-V2.zip. Input V2-BLUE-DEV at Version label. Click Deploy.     After few seconds, your application is uploaded successfully into Develop environment. Click to Domain to see the results.   At this time, background of Develop environment is Blue and Production environment is Green.\n\r"
+},
+{
+	"uri": "/6-swapurlbetweentwoenv/",
+	"title": "Swap URL of two environments",
+	"tags": [],
+	"description": "",
+	"content": "Because AWS Elastic Beanstalk performs an in-place update when you update your application versions, your application might become unavailable to users for a short period of time. To avoid this, perform a blue/green deployment. To do this, deploy the new version to a separate environment, and then swap the CNAMEs of the two environments to redirect traffic to the new version instantly.\nIn this section, we will only focus on how to swap the URL between two environments (DEV and PROD).\n\r Go to Environment of Elastic Beanstalk. Select FCJ-My-First-App-env-DEV environment, click Action and choose Swap environment domain.  At Environment, choose FCJ-My-First-App-env-PROD. Then, click Swap.  After that, access to domain of FCJ-My-First-App-env-DEV and FCJ-My-First-App-env-PROD environment to see the result.  The background of FCJ-My-First-App-env-DEV environment now is Green and the URL is FCJ-My-First-App-env-PROD.xxx.ap-southeast-1.elasticbeanstalk.com. The background of FCJ-My-First-App-env-PROD environment now is Blue and the URL is FCJ-My-First-App-env-DEV.xxx.ap-southeast-1.elasticbeanstalk.com.    So, two URLs of two environments are swapped each other. "
+},
+{
+	"uri": "/7-delete/",
+	"title": "Clean up resource",
+	"tags": [],
+	"description": "",
+	"content": "Delete Elastic Beanstalk application  Go to Applicaiton of Elastic Beanstalk. Select application FCJ-My-First-App, click Action and choose Delete application.  Enter the name of application FCJ-My-First-App to delete.   Delete Key Pair  Go to Key Pair Select key pair FCJ-KeyPair, click Action and choose Delete. Input Delete and click Delete   "
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
