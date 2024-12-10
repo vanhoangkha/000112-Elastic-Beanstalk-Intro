@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Create Production environment in Elastic Beanstalk :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1700811202" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1700811202" rel="stylesheet">
-    <link href="/css/hybrid.css?1700811202" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1700811202" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1700811202" rel="stylesheet">
-    <link href="/css/auto-complete.css?1700811202" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1700811202" rel="stylesheet">
-    <link href="/css/theme.css?1700811202" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1700811202" rel="stylesheet">
+    <link href="/css/nucleus.css?1733823091" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733823091" rel="stylesheet">
+    <link href="/css/hybrid.css?1733823091" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733823091" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733823091" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733823091" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733823091" rel="stylesheet">
+    <link href="/css/theme.css?1733823091" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733823091" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1700811202" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733823091" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1700811202"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733823091"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1700811202"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1700811202"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733823091"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733823091"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1700811202"></script>
+<script type="text/javascript" src="/js/search.js?1733823091"></script>
 
     
   </div>
@@ -229,7 +229,7 @@
   
     
     <li data-nav-id="/4-createprodenv/" title="Create Production environment in Elastic Beanstalk" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -411,7 +411,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>30-01-2022</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -502,28 +502,28 @@
 </li>
 <li>
 <p>Search key word <code>Elastic Beanstalk</code> and select.
-<img src="/images/4.createprodenv/4.1selectbeanstalk.png?width=80pc" alt="Search BeanStalk"></p>
+<img alt="Search BeanStalk" src="/images/4.createprodenv/4.1selectbeanstalk.png?width=80pc"></p>
 </li>
 <li>
 <p>Click <strong>Application</strong> and click to application name was created.
-<img src="/images/4.createprodenv/4.2selectapplication.png?width=80pc" alt="Select Application"></p>
+<img alt="Select Application" src="/images/4.createprodenv/4.2selectapplication.png?width=80pc"></p>
 </li>
 <li>
 <p>Click <strong>Create environment</strong> to create Production environment.
-<img src="/images/4.createprodenv/4.3createenv.png?width=80pc" alt="Select Application"></p>
+<img alt="Select Application" src="/images/4.createprodenv/4.3createenv.png?width=80pc"></p>
 </li>
 <li>
 <p>Input the name of environment <code>FCJ-My-First-App-env-PROD</code> at <strong>Environment name</strong>.</p>
 <ul>
 <li>Choose <strong>NodeJS</strong> at <strong>Platform</strong>.
-<img src="/images/4.createprodenv/4.4selectplatform.png?width=80pc" alt="Select Application"></li>
+<img alt="Select Application" src="/images/4.createprodenv/4.4selectplatform.png?width=80pc"></li>
 <li>Choose <strong>Upload your code</strong> at <strong>Application code</strong></li>
 <li>Input <code>V1-GREEN-PROD</code> at <strong>Version label</strong></li>
 <li>Choose <strong>Local file</strong> and click <strong>Choose file</strong> button to upload your code.</li>
 <li>Select the <strong>nodejs.zip</strong> file that you had downloaded.</li>
 <li>Choose <strong>High availability</strong> at <strong>Presets</strong>.</li>
-<li>Then click <strong>Next</strong> to go to next step. 
-<img src="/images/4.createprodenv/4.5uploadfile.png?width=80pc" alt="Select Application"></li>
+<li>Then click <strong>Next</strong> to go to next step.
+<img alt="Select Application" src="/images/4.createprodenv/4.5uploadfile.png?width=80pc"></li>
 </ul>
 </li>
 <li>
@@ -534,16 +534,16 @@
 <li>At <strong>EC2 key pair</strong>, select <strong>FCJ-KeyPair</strong>.</li>
 <li>At <strong>EC2 instance profile</strong>, select role <strong>aws-elasticbeanstalk-ec2-role</strong>.</li>
 <li>Then click <strong>Skip to review</strong> to go to next step.
-<img src="/images/4.createprodenv/4.6chooserole.png?width=80pc" alt="Choose Presets"></li>
+<img alt="Choose Presets" src="/images/4.createprodenv/4.6chooserole.png?width=80pc"></li>
 </ul>
 </li>
 <li>
 <p>Scroll down and click <strong>Submit</strong> to create environment.
-<img src="/images/4.createprodenv/4.7submit.png?width=80pc" alt="Choose Presets"></p>
+<img alt="Choose Presets" src="/images/4.createprodenv/4.7submit.png?width=80pc"></p>
 </li>
 <li>
 <p>Check the result, the environment is creating.
-<img src="/images/4.createprodenv/4.8creating.png?width=80pc" alt="Choose Presets">
+<img alt="Choose Presets" src="/images/4.createprodenv/4.8creating.png?width=80pc">
 
 <div class="notices info" ><p>This process will take you about 5 minutes to finish.</p>
 </div>
@@ -551,12 +551,12 @@
 </li>
 <li>
 <p>See the result after the environment is created successfully.
-<img src="/images/4.createprodenv/4.9created.png?width=80pc" alt="Choose Presets"></p>
+<img alt="Choose Presets" src="/images/4.createprodenv/4.9created.png?width=80pc"></p>
 </li>
 <li>
 <p>Click to <strong>Domain</strong> of environment to see the result.
-<img src="/images/4.createprodenv/4.10domain.png?width=80pc" alt="Choose Presets">
-<img src="/images/4.createprodenv/4.11result.png?width=80pc" alt="Choose Presets">
+<img alt="Choose Presets" src="/images/4.createprodenv/4.10domain.png?width=80pc">
+<img alt="Choose Presets" src="/images/4.createprodenv/4.11result.png?width=80pc">
 
 <div class="notices note" ><p>Remember that the background of your application now is <strong>Green</strong>.</p>
 </div>
@@ -567,15 +567,15 @@
 </li>
 <li>
 <p>Click to <strong>Instance</strong>. You will see the instance name <strong>FCJ-My-First-App-env-PROD</strong> had been provisioned by Elastic Beanstalk.
-<img src="/images/4.createprodenv/4.12ec2dashboard.png?width=80pc" alt="Choose Presets">
-<img src="/images/4.createprodenv/4.13prodec2.png?width=80pc" alt="Choose Presets"></p>
+<img alt="Choose Presets" src="/images/4.createprodenv/4.12ec2dashboard.png?width=80pc">
+<img alt="Choose Presets" src="/images/4.createprodenv/4.13prodec2.png?width=80pc"></p>
 </li>
 <li>
 <p>Click to <strong>Auto Scaling Groups</strong>, you will see two ASGs are created.</p>
 <ul>
 <li>The ASG with Max = 4, belongs to <strong>FCJ-My-First-App-env-PROD</strong> environment.</li>
 <li>The ASG with Max = 1, belongs to <strong>FCJ-My-First-App-env-DEV</strong> environment.
-<img src="/images/4.createprodenv/4.14asg.png?width=80pc" alt="Choose Presets"></li>
+<img alt="Choose Presets" src="/images/4.createprodenv/4.14asg.png?width=80pc"></li>
 </ul>
 </li>
 <li>
@@ -584,12 +584,12 @@
 <li>Select ALB.</li>
 <li>Click <strong>Listeners and rules</strong> tab.</li>
 <li>Click to the target group below.
-<img src="/images/4.createprodenv/4.15alb.png?width=80pc" alt="Choose Presets"></li>
+<img alt="Choose Presets" src="/images/4.createprodenv/4.15alb.png?width=80pc"></li>
 </ul>
 </li>
 <li>
 <p>In <strong>Target Group</strong> interface, at <strong>Registered targets</strong> you can see the instance that belongs to <strong>FCJ-My-First-App-env-PROD</strong> environment.
-<img src="/images/4.createprodenv/4.16targetgroup.png?width=80pc" alt="Choose Presets">
+<img alt="Choose Presets" src="/images/4.createprodenv/4.16targetgroup.png?width=80pc">
 
 <div class="notices tip" ><p>An ASG and ALB was created in Production environment since you selected <strong>High availability</strong> at <strong>Presets</strong> when configuring the Elastic Beanstalk.</p>
 </div>
@@ -806,19 +806,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1700811202"></script>
-    <script src="/js/perfect-scrollbar.min.js?1700811202"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1700811202"></script>
-    <script src="/js/jquery.sticky.js?1700811202"></script>
-    <script src="/js/featherlight.min.js?1700811202"></script>
-    <script src="/js/highlight.pack.js?1700811202"></script>
+    <script src="/js/clipboard.min.js?1733823091"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733823091"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733823091"></script>
+    <script src="/js/jquery.sticky.js?1733823091"></script>
+    <script src="/js/featherlight.min.js?1733823091"></script>
+    <script src="/js/highlight.pack.js?1733823091"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1700811202"></script>
-    <script src="/js/learn.js?1700811202"></script>
-    <script src="/js/hugo-learn.js?1700811202"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733823091"></script>
+    <script src="/js/learn.js?1733823091"></script>
+    <script src="/js/hugo-learn.js?1733823091"></script>
 
-    <link href="/mermaid/mermaid.css?1700811202" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1700811202"></script>
+    <link href="/mermaid/mermaid.css?1733823091" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733823091"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
